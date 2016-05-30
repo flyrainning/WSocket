@@ -80,7 +80,7 @@ WSocket.prototype.onmessage=function(evt){
 		var reader = new FileReader();  
 		reader.onload = function(e){  
 			if(e.target.readyState == FileReader.DONE){  
-				that.ondatafunc(evt.target.result,evt);
+				that.ondatafunc(e.target.result,evt);
 			}  
 		}
 		reader.readAsDataURL(evt.data);  
