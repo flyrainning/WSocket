@@ -1,0 +1,2 @@
+# WSocket
+基于nodejs和浏览器的websocket通讯的简单框架，能实现string，json，dataurl和二进制数据的互相通讯，并可以通过标志键实现简单的功能导航
