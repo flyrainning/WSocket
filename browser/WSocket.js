@@ -94,6 +94,10 @@ WSocket.prototype.onmessage=function(evt){
 			}  
 		}
 		reader.readAsArrayBuffer(evt.data);  
+	}else if((this.return_type=="blob")||(this.return_type=="none")){
+
+		that.ondatafunc(evt.data,evt);
+		
 	}
 
 }
