@@ -74,7 +74,17 @@ WSocket.prototype.onmessage=function(evt){
 	if(this.return_type=="json"){  
 		that.ondatafunc(JSON.parse(evt.data,evt));
 	}else if(this.return_type=="string"){  
-		that.ondatafunc(evt.data,evt);
+		if (typeof(evt.data)=="string"){
+			that.ondatafunc(evt.data,evt);
+		}else{
+			var reader = new FileReader();  
+			reader.onload = function(e){  
+				if(e.target.readyState == FileReader.DONE){  
+					that.ondatafunc(e.target.result,evt);
+				}  
+			}
+			reader.readAsText(evt.data); 
+		}
 	}else if(this.return_type=="dataurl"){
 
 		var reader = new FileReader();  
